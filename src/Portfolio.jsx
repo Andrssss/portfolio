@@ -321,9 +321,33 @@ export default function Portfolio() {
           .neo-cr_nav:hover { transform: translateY(-50%) scale(1.04); }
 
           /* dots */
-          .neo-cr_dots{position:absolute; left:0; right:0; bottom:8px; display:flex; justify-content:center; gap:6px}
-          .neo-cr_dot{width:8px; height:8px; border-radius:50%; border:1px solid var(--line); background:#e8edf7; cursor:pointer}
-          .neo-cr_dot.active{background:#0b3b82; border-color:#0b3b82}
+.neo-cr_dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 6px;
+  display: flex;
+  justify-content: center;
+  gap: 4px;       /* smaller gap */
+}
+
+.neo-cr_dot {
+  all: unset;          /* reset ALL default button styles */
+  display: block;      /* force it to behave like a block */
+  width: 20px;         /* now real size */
+  height: 10px;         /* very flat */
+  border-radius: 1px;
+  background: #d0d6e4;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.neo-cr_dot.active {
+  background: var(--accent);
+}
+
+
+
 
           /* ── MOBILE-first tweaks ───────────────────────────────────────── */
           @media (max-width:640px){
