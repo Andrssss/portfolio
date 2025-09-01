@@ -274,7 +274,7 @@ export default function Portfolio() {
           position:absolute;top:50%;transform:translateY(-50%);
           width:42px;height:42px;border-radius:999px;border:1px solid var(--line);
           background:rgba(20,24,36,.9);color:var(--text);cursor:pointer;font-size:22px;
-          box-shadow:0 10px 24px rgba(0,0,0,.45);
+          box-shadow:0 10px 25px rgba(0,0,0,.45);
         }
         .carousel__nav.left{left:10px;}
         .carousel__nav.right{right:10px;}
