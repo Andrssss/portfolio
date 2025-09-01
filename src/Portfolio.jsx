@@ -20,6 +20,22 @@ const pythonImgs = Object.entries(
   import.meta.glob("./assets/portfolio/works/python_autolab/*.{png,jpg,jpeg}", { eager: true, import: "default" })
 ).sort(([a],[b]) => a.localeCompare(b, undefined, { numeric: true })).map(([,m]) => m);
 
+
+/* ── Education ─────────────────────────────────────────────────────────── */
+const education = [
+  {
+    degree: "BSc in Computer Engineering",
+    school: "Pázmány Péter Catholic University ",
+    period: "2022 – present",
+  },
+  {
+    degree: "Electronics Technician",
+    school: "Újpest Bilingual Technical School",
+    period: "2019 – 2020",
+  },
+];
+
+
 /* ── Sidebar data ──────────────────────────────────────────────────────── */
 const skills = [
   { name: "C++", level: 60, note: "≈4 years, currently learning it in advanced level" },
@@ -174,7 +190,8 @@ export default function Portfolio() {
     <section className="neo-wrap">
       <div className="neo-cols">
         {/* LEFT RAIL */}
-        <aside className="neo-rail">
+       <aside className="neo-rail">
+          {/* Profile */}
           <div className="neo-card neo-center neo-profileCard">
             <img className="neo-avatar" src={profileImg} alt="Profile" />
             <div>
@@ -182,6 +199,25 @@ export default function Portfolio() {
             </div>
           </div>
 
+          {/* Education */}
+          <div className="neo-card neo-edu">
+            <div className="neo-section neo-edu-head">
+              <span className="neo-edu-icon" aria-hidden>🎓</span>
+              <span>Education</span>
+            </div>
+
+            <ul className="neo-edu-list">
+            {education.map((e, i) => (
+              <li key={i} className="neo-edu-item">
+                <div className="neo-edu-degree">{e.degree}</div>
+                <div className="neo-edu-period">{e.period}</div>
+                <div className="neo-edu-school">{e.school}</div>
+              </li>
+            ))}
+          </ul>
+          </div>
+
+          {/* Skills */}
           <div className="neo-card">
             <div className="neo-section">Programming Languages</div>
             <div className="neo-skilllist">
@@ -199,6 +235,8 @@ export default function Portfolio() {
             </div>
           </div>
         </aside>
+
+
 
         {/* RIGHT COLUMN – unified cards */}
         <main className="neo-main">
@@ -258,7 +296,7 @@ export default function Portfolio() {
           }
           .neo-section{padding:14px 16px 6px;font-weight:700;letter-spacing:.2px;border-bottom:1px solid var(--line)}
 
-          .neo-rail{position:sticky;top:16px;height:fit-content;display:grid;gap:16px}
+          .neo-rail{top:16px;height:fit-content;display:grid;gap:16px}
           .neo-skilllist{padding:12px 16px 16px;display:grid;gap:14px}
           .neo-skill-head{display:flex;justify-content:space-between;gap:10px}
           .neo-skill-note{color:var(--muted);font-size:12px}
@@ -365,6 +403,53 @@ export default function Portfolio() {
 }
 
 
+
+
+          /* Education -----------------------------------------------------*/
+          .neo-edu-list {
+            list-style: none;
+            margin: 0;
+            padding: 10px 14px 12px;
+            display: grid;
+            gap: 16px;
+          }
+
+          .neo-edu-item {
+            position: relative;
+            padding-left: 16px;
+          }
+
+          /* custom bullet */
+          .neo-edu-item::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0.35em;
+            font-size: 18px;
+            color: #283041;
+          }
+
+          .neo-edu-degree {
+            font-weight: 700;
+            margin-left: 0;
+            margin-bottom: 2px;
+          }
+
+          .neo-edu-period {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 2px;
+          }
+
+          .neo-edu-school {
+            color: var(--ink);
+            font-size: 14px;
+            line-height: 1.4;
+            padding-left: 0px;
+          }
+
+
+                    
 
 
           /* ── MOBILE-first tweaks ───────────────────────────────────────── */
