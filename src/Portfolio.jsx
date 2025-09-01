@@ -80,7 +80,8 @@ function Carousel({ images, altPrefix = "Slide" }) {
   const clamp = (n) => Math.max(0, Math.min(n, images.length - 1));
 
   useEffect(() => {
-    ref.current?.children[i]?.scrollIntoView({ behavior: "smooth", inline: "start" });
+    const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? "auto" : "smooth";
+    ref.current?.children[i]?.scrollIntoView({ behavior, inline: "start" });
   }, [i]);
 
   const begin = (x) => (drag.current = { x, t: Date.now(), live: true });
@@ -118,22 +119,33 @@ function Carousel({ images, altPrefix = "Slide" }) {
       </div>
 
       {images.length > 1 && (
-  <>
-    <button className="neo-cr_nav left"  onClick={() => setI((k) => clamp(k - 1))} aria-label="Previous">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M15 19L8 12l7-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </button>
-    <button className="neo-cr_nav right" onClick={() => setI((k) => clamp(k + 1))} aria-label="Next">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </button>
-  </>
-)}
+        <>
+          <button className="neo-cr_nav left"  onClick={() => setI((k) => clamp(k - 1))} aria-label="Previous">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M15 19L8 12l7-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+          <button className="neo-cr_nav right" onClick={() => setI((k) => clamp(k + 1))} aria-label="Next">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
 
-
-
+          {/* Mobile-friendly dots */}
+          <div className="neo-cr_dots" role="tablist" aria-label="Slide pagination">
+            {images.map((_, idx) => (
+              <button
+                key={idx}
+                role="tab"
+                aria-selected={i === idx}
+                aria-label={`Go to slide ${idx + 1}`}
+                className={`neo-cr_dot ${i===idx ? 'active' : ''}`}
+                onClick={() => setI(idx)}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }
@@ -145,9 +157,11 @@ export default function Portfolio() {
       <div className="neo-cols">
         {/* LEFT RAIL */}
         <aside className="neo-rail">
-          <div className="neo-card neo-center">
+          <div className="neo-card neo-center neo-profileCard">
             <img className="neo-avatar" src={profileImg} alt="Profile" />
-            <div className="neo-title">Computer Engineering student</div>
+            <div>
+              <div className="neo-title">Computer Engineering student</div>
+            </div>
           </div>
 
           <div className="neo-card">
@@ -245,7 +259,7 @@ export default function Portfolio() {
           .neo-muted{color:var(--muted)}
           .neo-tags{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 12px}
           .neo-tag{padding:4px 8px;border:1px solid var(--line);border-radius:999px;background:#f3f7ff;color:#0b3b82;font-weight:600;font-size:12px}
-          .neo-links{display:flex;gap:8px}
+          .neo-links{display:flex;gap:8px;flex-wrap:wrap}
           .neo-btn{padding:7px 12px;border:1px solid var(--line);border-radius:8px;background:#f3f7ff;color:#0b3b82;text-decoration:none;font-weight:600}
           .neo-btn:hover{background:#e8f1ff}
 
@@ -268,9 +282,9 @@ export default function Portfolio() {
             height:auto;
             object-fit:contain;
             display:block;
+            max-height:70vh; /* prevent overly tall images on small screens */
           }
 
-          /* nav buttons */
           /* nav buttons */
           .neo-cr_nav {
             position: absolute;
@@ -288,7 +302,6 @@ export default function Portfolio() {
             transition: opacity .15s, transform .08s;
             z-index: 3;
           }
-
 
           .neo-cr:hover .neo-cr_nav,
           .neo-cr_nav:focus-visible { opacity: .95; }
@@ -311,6 +324,49 @@ export default function Portfolio() {
           .neo-cr_dots{position:absolute; left:0; right:0; bottom:8px; display:flex; justify-content:center; gap:6px}
           .neo-cr_dot{width:8px; height:8px; border-radius:50%; border:1px solid var(--line); background:#e8edf7; cursor:pointer}
           .neo-cr_dot.active{background:#0b3b82; border-color:#0b3b82}
+
+          /* ── MOBILE-first tweaks ───────────────────────────────────────── */
+          @media (max-width:640px){
+            .neo-wrap{padding:16px 12px 60px; font-size:14px}
+            .neo-cols{gap:16px}
+
+            /* turn sticky rail into normal flow and compress profile */
+            .neo-rail{position:static; top:auto; gap:12px}
+            .neo-center{padding:12px 12px}
+            .neo-profileCard{display:flex; align-items:center; gap:12px; text-align:left}
+            .neo-avatar{width:72px; height:72px; border-radius:10px}
+            .neo-title{margin-top:0; font-size:13px}
+
+            .neo-section{padding:10px 12px 6px}
+            .neo-skilllist{padding:10px 12px}
+            .neo-skill-head{font-size:13px}
+            .neo-bar{height:8px}
+
+            .neo-main{gap:48px}
+            .neo-main::before{left:14px}
+            .neo-item{grid-template-columns:24px 1fr; gap:10px}
+            .neo-dot{font-size:11px; padding:4px 6px; top:8px}
+
+            .neo-body{padding:12px 12px}
+            .neo-h3{font-size:18px}
+            .neo-tags{gap:6px}
+            .neo-tag{font-size:11px; padding:3px 8px}
+            .neo-links{gap:6px}
+            .neo-btn{padding:9px 12px; font-size:13px}
+
+            /* carousel: always show controls, bigger touch targets */
+            .neo-cr_nav{width:38px; height:38px; opacity:.95}
+            .neo-cr_vp{border-bottom:0}
+            .neo-cr_slide img{max-height:55vh}
+          }
+
+          /* even smaller devices */
+          @media (max-width:420px){
+            .neo-avatar{width:64px; height:64px}
+            .neo-item{grid-template-columns:20px 1fr}
+            .neo-btn{width:100%; text-align:center}
+            .neo-links{flex-direction:column}
+          }
       `}</style>
     </section>
   );
