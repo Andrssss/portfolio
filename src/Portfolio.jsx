@@ -80,9 +80,15 @@ function Carousel({ images, altPrefix = "Slide" }) {
   const clamp = (n) => Math.max(0, Math.min(n, images.length - 1));
 
   useEffect(() => {
-    const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? "auto" : "smooth";
-    ref.current?.children[i]?.scrollIntoView({ behavior, inline: "start" });
+    const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    const vp = ref.current;
+    const slide = vp?.children?.[i];
+    if (!vp || !slide) return;
+
+    // Only move the horizontal scroll position
+    vp.scrollTo({ left: slide.offsetLeft, behavior });
   }, [i]);
+
 
   const begin = (x) => (drag.current = { x, t: Date.now(), live: true });
   const end   = (x) => {
@@ -120,12 +126,24 @@ function Carousel({ images, altPrefix = "Slide" }) {
 
       {images.length > 1 && (
         <>
-          <button className="neo-cr_nav left"  onClick={() => setI((k) => clamp(k - 1))} aria-label="Previous">
+          <button
+            type="button"
+            className="neo-cr_nav left"
+            onMouseDown={(e)=>{ e.preventDefault(); }}   // stop focus scroll
+            onClick={() => setI(k => clamp(k - 1))}
+            aria-label="Previous"
+          >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M15 19L8 12l7-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
-          <button className="neo-cr_nav right" onClick={() => setI((k) => clamp(k + 1))} aria-label="Next">
+          <button
+            type="button"
+            className="neo-cr_nav right"
+            onMouseDown={(e)=>{ e.preventDefault(); }}
+            onClick={() => setI(k => clamp(k + 1))}
+            aria-label="Next"
+          >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
