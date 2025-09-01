@@ -38,13 +38,13 @@ const education = [
 
 /* ── Sidebar data ──────────────────────────────────────────────────────── */
 const skills = [
-  { name: "C++", level: 60, note: "≈4 years, currently learning it in advanced level" },
-  { name: "Python", level: 75, note: "≈2 years, frequent" },
+  { name: "C++", level: 60, note: "≈6 years, currently learning it in advanced level" },
+  { name: "Python", level: 60, note: "≈2 years, frequent" },
   { name: "Java", level: 70, note: "love it" },
   { name: "HTML", level: 50, note: "occasional" },
   { name: "CSS", level: 50, note: "basics" },
   { name: "JavaScript / TypeScript", level: 60, note: "heavily learning" },
-  { name: "PHP", level: 55, note: "not an expert" },
+  { name: "PHP", level: 5, note: "not an expert" },
   { name: "SQL", level: 40, note: "Love it, used it for website" },
   { name: "MATLAB", level: 30, note: "rarely use it" },
 ];
