@@ -22,7 +22,7 @@ const pythonImgs = Object.entries(
 
 /* ── Sidebar data ──────────────────────────────────────────────────────── */
 const skills = [
-  { name: "C++", level: 70, note: "≈4 years, active" },
+  { name: "C++", level: 60, note: "≈4 years, currently learning it in advanced level" },
   { name: "Python", level: 75, note: "≈2 years, frequent" },
   { name: "Java", level: 70, note: "love it" },
   { name: "HTML", level: 50, note: "occasional" },
