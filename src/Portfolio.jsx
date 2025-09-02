@@ -46,7 +46,7 @@ const skills = [
   { name: "Java", level: 70, note: "love it" },
   { name: "HTML", level: 50, note: "occasional" },
   { name: "CSS", level: 50, note: "basics" },
-  { name: "JavaScript / TypeScript", level: 60, note: "heavily learning" },
+  { name: "JavaScript / TypeScript", level: 30, note: "heavily learning" },
   { name: "PHP", level: 5, note: "not an expert" },
   { name: "SQL", level: 40, note: "Love it, used it for website" },
   { name: "MATLAB", level: 30, note: "rarely use it" },
