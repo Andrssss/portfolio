@@ -7,16 +7,16 @@ import "./portfolio.css";
 import profileImg from "./assets/portfolio/profile/profile.jpg";
 
 /* ── Folder imports (Vite literal globs) ───────────────────────────────── */
-const neuralImgs = Object.entries(
-  import.meta.glob("./assets/portfolio/works/neural_net/*.{png,jpg,jpeg}", { eager: true, import: "default" })
-).sort(([a],[b]) => a.localeCompare(b, undefined, { numeric: true })).map(([,m]) => m);
-
 const websiteImgs = Object.entries(
   import.meta.glob("./assets/portfolio/works/website/*.{png,jpg,jpeg}", { eager: true, import: "default" })
 ).sort(([a],[b]) => a.localeCompare(b, undefined, { numeric: true })).map(([,m]) => m);
 
 const javaImgs = Object.entries(
   import.meta.glob("./assets/portfolio/works/java_client_server/*.{png,jpg,jpeg}", { eager: true, import: "default" })
+).sort(([a],[b]) => a.localeCompare(b, undefined, { numeric: true })).map(([,m]) => m);
+
+const neuralImgs = Object.entries(
+  import.meta.glob("./assets/portfolio/works/neural_net/*.{png,jpg,jpeg}", { eager: true, import: "default" })
 ).sort(([a],[b]) => a.localeCompare(b, undefined, { numeric: true })).map(([,m]) => m);
 
 const pythonImgs = Object.entries(
@@ -29,7 +29,7 @@ const education = [
   {
     degree: "BSc in Computer Engineering",
     school: "Pázmány Péter Catholic University ",
-    period: "2022 – present",
+    period: "2022 – 2026.08",
   },
   {
     degree: "Electronics Technician",
@@ -43,25 +43,17 @@ const education = [
 const skills = [
   { name: "C++", level: 60, note: "≈6 years, currently learning it in advanced level" },
   { name: "Python", level: 60, note: "≈2 years, frequent" },
-  { name: "Java", level: 70, note: "love it" },
-  { name: "HTML", level: 50, note: "occasional" },
-  { name: "CSS", level: 50, note: "basics" },
-  { name: "JavaScript / TypeScript", level: 30, note: "heavily learning" },
+  { name: "Java", level: 50, note: "love it" },
+  { name: "HTML", level: 40, note: "occasional" },
+  { name: "CSS", level: 35, note: "basics" },
+  { name: "JavaScript / TypeScript", level: 25, note: "deeply engaged" },
   { name: "PHP", level: 5, note: "not an expert" },
-  { name: "SQL", level: 40, note: "Love it, used it for website" },
-  { name: "MATLAB", level: 30, note: "rarely use it" },
+  { name: "SQL", level: 50, note: "Love it, used it for website" },
+  { name: "MATLAB", level: 20, note: "rarely use it" },
 ];
 
 /* ── Projects ──────────────────────────────────────────────────────────── */
-const projects = [
-  {
-    n: 1,
-    title: "Python - Neural Network",
-    summary: "This project pushed me to explore different network architectures and understand how to apply them in practice. It was part of a high-stakes competition, which we were in top 5, so as a reward, we didn’t have to take the final exam.",
-    images: neuralImgs,
-    links: [{ label: "Github Repository", href: "https://github.com/Gergobergo0/conTest" }],
-    tags: ["Python", "Deep Learning", "PyTorch","Pandas"],
-  },  
+const projects = [ 
   {
     n: 2,
     title: "React - Personal Website",
@@ -81,6 +73,14 @@ const projects = [
     links: [{ label: "Github Repository", href: "https://github.com/Andrssss/JAVA_NAGYHF_okosabb_megoldas" }],
     tags: ["Java", "Networking"],
   },
+  {
+    n: 1,
+    title: "Python - Neural Network",
+    summary: "This project pushed me to explore different network architectures and understand how to apply them in practice. It was part of a high-stakes competition, which we were in top 5, so as a reward, we didn’t have to take the final exam.",
+    images: neuralImgs,
+    links: [{ label: "Github Repository", href: "https://github.com/Gergobergo0/conTest" }],
+    tags: ["Python", "Deep Learning", "PyTorch","Pandas"],
+  }, 
   {
     n: 4,
     title: "Python – AutoLab",
