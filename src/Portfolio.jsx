@@ -71,7 +71,7 @@ const projects = [
     summary: "Thread-safe client–server communication; clean OOP structure.",
     images: javaImgs,
     links: [{ label: "Github Repository", href: "https://github.com/Andrssss/JAVA_NAGYHF_okosabb_megoldas" }],
-    tags: ["Java", "Networking"],
+    tags: ["Java", "Networking", "Threading", "OOP", "Socket"],
   },
   {
     n: 1,
@@ -87,7 +87,7 @@ const projects = [
     summary: "Petri-dish automation: Arduino comms, GUI, and image processing.",
     images: pythonImgs,
     links: [{ label: "Github Repository", href: "https://github.com/Andrssss/AutoLab" }],
-    tags: ["Python", "Arduino", "PyQt", "OpenCV","pySerial"],
+    tags: ["Python", "Arduino", "PyQt", "OpenCV","pySerial","Threading"],
   },
 ];
 
