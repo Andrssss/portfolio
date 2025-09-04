@@ -234,7 +234,7 @@ const handleCvOpen = () => {
                   open
                 </button>
 
-                <p>📞 +36 70 368 9977</p>
+                <p>📞 +36 70 358 9977</p>
                 <p>✉️ bak.andrs@gmail.com</p>
               </div>
 
