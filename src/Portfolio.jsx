@@ -55,7 +55,7 @@ const skills = [
 /* ── Projects ──────────────────────────────────────────────────────────── */
 const projects = [ 
   {
-    n: 2,
+    n: 1,
     title: "React - Personal Website",
     summary: "A hobby project to learn and practice modern web techniques, while also providing a useful resource for classmates and junior students.",
     images: websiteImgs,
@@ -66,7 +66,7 @@ const projects = [
     tags: ["HTML", "CSS", "JavaScript","React"],
   },
   {
-    n: 3,
+    n: 2,
     title: "Java – Safer Client/Server",
     summary: "Thread-safe client–server communication; clean OOP structure.",
     images: javaImgs,
@@ -74,7 +74,7 @@ const projects = [
     tags: ["Java", "Networking", "Threading", "OOP", "Socket"],
   },
   {
-    n: 1,
+    n: 3,
     title: "Python - Neural Network",
     summary: "This project pushed me to explore different network architectures and understand how to apply them in practice. It was part of a high-stakes competition, which we were in top 5, so as a reward, we didn’t have to take the final exam.",
     images: neuralImgs,
