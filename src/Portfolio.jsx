@@ -41,11 +41,11 @@ const education = [
 
 /* ── Sidebar data ──────────────────────────────────────────────────────── */
 const skills = [
-  { name: "C++", level: 60, note: "≈6 years, currently learning it in advanced level" },
+  { name: "C++", level: 40, note: "≈6 years" },
   { name: "Python", level: 60, note: "≈2 years, frequent" },
-  { name: "Java", level: 50, note: "love it" },
+  { name: "Java", level: 40, note: "love it" },
   { name: "HTML", level: 40, note: "occasional" },
-  { name: "CSS", level: 35, note: "basics" },
+  { name: "CSS", level: 20, note: "basics" },
   { name: "JavaScript / TypeScript", level: 25, note: "deeply engaged" },
   { name: "PHP", level: 5, note: "not an expert" },
   { name: "SQL", level: 50, note: "Love it, used it for website" },
@@ -214,9 +214,9 @@ const handleCvOpen = () => {
             <div>
               <div className="neo-title">Computer Engineering student</div>
               <div className="neo-contact">
-                <span>📄 CV – </span>
+              {/*   <span>📄 CV – </span>
 
-                {/* Mobile: open in new tab */}
+                Mobile: open in new tab
                 <a
                   href={cvPdf}
                   target="_blank"
@@ -226,13 +226,16 @@ const handleCvOpen = () => {
                   open
                 </a>
 
-                {/* Desktop: open modal */}
+               Desktop: open modal
                 <button
                   onClick={() => setOpen(true)}
                   className="neo-linkBtn neo-desktopOnly"
                 >
                   open
                 </button>
+
+ */}
+
 
                 <p>📞 +36 70 358 9977</p>
                 <p>✉️ bak.andrs@gmail.com</p>
