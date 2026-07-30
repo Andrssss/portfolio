@@ -48,7 +48,7 @@ const education = [
   {
     degree: "BSc in Computer Engineering",
     school: "Pázmány Péter Catholic University",
-    period: "2022 – 2026.08",
+    period: "2022 – 2026",
   },
   {
     degree: "Electronics Technician",
@@ -70,9 +70,8 @@ const skills = [
   { name: "PHP", level: 5, note: "not an expert" },
 ];
 
-function asciiBar(level, width = 10) {
-  const filled = Math.max(0, Math.min(width, Math.round((level / 100) * width)));
-  return { filled: "█".repeat(filled), empty: "▒".repeat(width - filled) };
+function barSegments(level, width = 10) {
+  return Math.max(0, Math.min(width, Math.round((level / 100) * width)));
 }
 
 /* ── Projects ──────────────────────────────────────────────────────────── */
@@ -287,7 +286,7 @@ export default function Portfolio() {
           <TerminalWindow title="andras@portfolio: ~/skills">
             <div className="term-pad">
               {skills.map((s) => {
-                const bar = asciiBar(s.level);
+                const filled = barSegments(s.level);
                 return (
                   <div key={s.name} className="term-skill">
                     <div className="term-skill-head">
@@ -295,7 +294,12 @@ export default function Portfolio() {
                       <span className="term-skill-note">{s.note}</span>
                     </div>
                     <div className="term-skill-bar">
-                      <span>{bar.filled}</span><span className="empty">{bar.empty}</span><span className="pct"> {s.level}%</span>
+                      <span className="term-skill-track">
+                        {Array.from({ length: 10 }, (_, i) => (
+                          <span key={i} className={`term-skill-seg${i < filled ? " filled" : ""}`} />
+                        ))}
+                      </span>
+                      <span className="pct">{s.level}%</span>
                     </div>
                   </div>
                 );

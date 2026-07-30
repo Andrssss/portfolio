@@ -50,8 +50,8 @@ body::before{
 .term-page{display:grid;grid-template-columns:300px 1fr;gap:20px}
 @media (max-width:980px){.term-page{grid-template-columns:1fr}}
 
-.term-rail{display:grid;gap:20px;height:fit-content}
-.term-main{display:grid;gap:20px}
+.term-rail{display:grid;gap:20px;height:fit-content;align-content:start}
+.term-main{display:grid;gap:20px;height:fit-content;align-content:start}
 
 /* ── Terminal window chrome ─────────────────────────────────────────────── */
 .term-card{background:var(--bg-alt);border:1px solid var(--line);border-radius:8px;overflow:hidden}
@@ -65,9 +65,10 @@ body::before{
 .term-card--pinned .term-bar{border-bottom-color:var(--magenta)}
 .term-card--pinned .term-titlebar-text{color:var(--magenta)}
 
-.term-projects-label{color:var(--muted);font-size:13px;margin:0 2px}
+.term-projects-label{color:var(--muted);font-size:13px;line-height:1.2;margin:0 2px}
 .term-projects-label .term-prompt{margin-right:6px}
-.term-projects-label + .term-card{margin-top:-12px}
+.term-projects-label + .term-card{margin-top:-14px}
+.term-card + .term-projects-label{margin-top:36px}
 
 /* ── Prompt / output lines ──────────────────────────────────────────────── */
 .term-line{margin:16px 0 6px;color:var(--ink)}
@@ -109,9 +110,11 @@ body::before{
 .term-skill{margin:14px 0 0;font-size:13px}
 .term-skill-head{display:flex;justify-content:space-between;gap:10px;color:var(--ink)}
 .term-skill-note{color:var(--muted);font-size:11px;text-align:right}
-.term-skill-bar{color:var(--green);letter-spacing:-1px;font-size:14px;margin-top:2px;white-space:nowrap}
-.term-skill-bar .empty{color:#4b5563}
-.term-skill-bar .pct{color:var(--muted);letter-spacing:0;font-size:12px}
+.term-skill-bar{display:flex;align-items:center;gap:8px;margin-top:6px}
+.term-skill-track{display:flex;gap:2px}
+.term-skill-seg{width:12px;height:10px;border-radius:1px;background:#3a4451}
+.term-skill-seg.filled{background:var(--green)}
+.term-skill-bar .pct{color:var(--muted);font-size:12px}
 
 /* ── Work experience ────────────────────────────────────────────────────── */
 .term-exp-item{margin-top:14px}
@@ -172,9 +175,11 @@ body::before{
   .term-page{gap:14px}
   .term-rail{gap:14px}
   .term-main{gap:14px}
+  .term-projects-label + .term-card{margin-top:-8px}
+  .term-card + .term-projects-label{margin-top:22px}
   .term-pad{padding:12px 14px}
   .term-avatar{width:48px;height:48px}
-  .term-skill-bar{font-size:12px}
+  .term-skill-seg{width:10px;height:9px}
   .neo-cr_nav{opacity:1;width:30px;height:30px;font-size:14px}
   .neo-cr_slide img{max-height:55vh}
 }
