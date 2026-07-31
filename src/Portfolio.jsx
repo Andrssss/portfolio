@@ -48,7 +48,7 @@ const education = [
   {
     degree: "BSc in Computer Engineering",
     school: "Pázmány Péter Catholic University",
-    period: "2022 – 2026",
+    period: "2022 – 2026.06",
   },
   {
     degree: "Electronics Technician",
@@ -63,11 +63,9 @@ const skills = [
   { name: "SQL", level: 50, note: "solid, use it daily" },
   { name: "Java", level: 40, note: "love it" },
   { name: "C++", level: 30, note: "≈6 years" },
-  { name: "HTML", level: 25, note: "occasional" },
-  { name: "CSS", level: 20, note: "basics" },
+  { name: "HTML / CSS", level: 25, note: "basics" },
   { name: "MATLAB", level: 20, note: "rarely use it" },
   { name: "JavaScript / TypeScript", level: 10, note: "more like a hobby" },
-  { name: "PHP", level: 5, note: "not an expert" },
 ];
 
 function barSegments(level, width = 10) {
@@ -79,7 +77,7 @@ const projects = [
   {
     n: 1,
     title: "React – IT Internship & Career Job Board",
-    summary: "What started as a small favor for fellow students has grown into something bigger: an hourly-updated aggregator that pulls IT internship and job listings from dozens of sources, including LinkedIn, Hungarian student job boards, and company career pages scraped directly with an AI agent. It deduplicates everything and is now growing into a full career platform, not just for one university's students.",
+    summary: "What started as a small favor for fellow students has grown into something bigger: an hourly-updated aggregator that pulls IT internship and job listings from dozens of sources, using regular scrapers for places like LinkedIn and Hungarian student job boards, plus an AI agent to scrape company career pages directly. It's now growing into a full career platform that's almost ready for a full public launch.",
     images: internshipImgs,
     links: [
       { label: "Live", href: "https://intern-jobs-ppke.netlify.app/" },
@@ -89,7 +87,7 @@ const projects = [
   {
     n: 2,
     title: "Java – Safer Client/Server",
-    summary: "Thread-safe client–server communication; clean OOP structure.",
+    summary: "Thread-safe client–server communication with a clean OOP structure.",
     images: javaImgs,
     links: [{ label: "Github Repository", href: "https://github.com/Andrssss/JAVA_NAGYHF_okosabb_megoldas" }],
     tags: ["java", "networking", "threading", "oop", "socket"],
@@ -97,7 +95,7 @@ const projects = [
   {
     n: 3,
     title: "Python - Neural Network",
-    summary: "This project pushed me to explore different network architectures and understand how to apply them in practice. It was part of a high-stakes competition, which we were in top 5, so as a reward, we didn’t have to take the final exam.",
+    summary: "This project pushed me to explore different network architectures and understand how to apply them in practice. It was part of a high-stakes competition, which we were in top 5.",
     images: neuralImgs,
     links: [{ label: "Github Repository", href: "https://github.com/Gergobergo0/conTest" }],
     tags: ["python", "deep-learning", "pytorch", "pandas"],
@@ -105,9 +103,12 @@ const projects = [
   {
     n: 4,
     title: "Python – AutoLab",
-    summary: "Petri-dish automation: Arduino comms, GUI, and image processing.",
+    summary: "Petri-dish automation: Arduino comms, GUI, and image processing. This was also my thesis project.",
     images: pythonImgs,
-    links: [{ label: "Github Repository", href: "https://github.com/Andrssss/AutoLab" }],
+    links: [
+      { label: "Github Repository", href: "https://github.com/Andrssss/AutoLab" },
+      { label: "Read Thesis", href: "https://drive.google.com/file/d/1KrKtsGuUATFkYlq-HUVLFdjmnOpB2I2u/view?usp=sharing" },
+    ],
     tags: ["python", "arduino", "pyqt", "opencv", "pyserial", "threading"],
   },
 ];

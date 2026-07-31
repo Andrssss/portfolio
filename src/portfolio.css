@@ -159,7 +159,7 @@ body::before{
 .neo-cr_vp{width:100%;display:grid;grid-auto-flow:column;grid-auto-columns:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .neo-cr_vp::-webkit-scrollbar{display:none}
 .neo-cr_slide{scroll-snap-align:start}
-.neo-cr_slide img{width:100%;height:auto;object-fit:contain;display:block;max-height:70vh}
+.neo-cr_slide img{width:100%;height:auto;object-fit:contain;display:block;max-height:360px}
 .neo-cr_nav{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;padding:0;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;background:rgba(11,14,17,.8);border-radius:4px;color:var(--green);font-family:var(--mono);font-size:16px;font-weight:700;opacity:0;transition:opacity .15s,background .15s,color .15s;z-index:3}
 .neo-cr:hover .neo-cr_nav,.neo-cr_nav:focus-visible{opacity:1}
 .neo-cr_nav.left{left:8px}
@@ -181,5 +181,5 @@ body::before{
   .term-avatar{width:48px;height:48px}
   .term-skill-seg{width:10px;height:9px}
   .neo-cr_nav{opacity:1;width:30px;height:30px;font-size:14px}
-  .neo-cr_slide img{max-height:55vh}
+  .neo-cr_slide img{max-height:260px}
 }
