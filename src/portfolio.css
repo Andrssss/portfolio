@@ -146,14 +146,6 @@ body::before{
 .term-tags{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
 .term-tag{font-size:12px;color:var(--amber);border:1px solid var(--line-strong);padding:2px 8px;border-radius:3px;background:var(--bg-elevated)}
 
-/* ── CV modal ───────────────────────────────────────────────────────────── */
-.term-modalOverlay{position:fixed;inset:0;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;z-index:1000;padding:1rem}
-.term-modalCard{width:min(100%,900px);max-height:92vh;display:flex;flex-direction:column;border-color:var(--green)}
-.term-modalBody{flex:1 1 auto;background:var(--bg-elevated);padding:14px;overflow:auto}
-.term-modalPdf{width:100%;height:78vh;display:block;border:none;background:#fff;border-radius:4px}
-.term-modalFallback{padding:1rem;color:var(--muted);font-size:13px}
-.term-modalFooter{display:flex;gap:8px;justify-content:flex-end;padding:12px 16px;border-top:1px solid var(--line)}
-
 /* ── CAROUSEL ───────────────────────────────────────────────────────────── */
 .neo-cr{position:relative;outline:none;background:#000}
 .neo-cr_vp{width:100%;display:grid;grid-auto-flow:column;grid-auto-columns:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}

@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react";
-import CvModal from "./CvModal";
 import cvPdf from "./assets/cv.pdf";
 import "./portfolio.css";
 
@@ -221,19 +220,7 @@ function Carousel({ images, altPrefix = "Slide" }) {
 
 /* ── Main ─────────────────────────────────────────────────────────────── */
 export default function Portfolio() {
-  const [open, setOpen] = useState(false);
   const [openProjects, setOpenProjects] = useState({});
-
-  const handleCvOpen = () => {
-    const isMobile = typeof window !== "undefined" &&
-      window.matchMedia("(max-width: 640px)").matches;
-
-    if (isMobile) {
-      window.open(cvPdf, "_blank", "noopener,noreferrer");
-    } else {
-      setOpen(true);
-    }
-  };
 
   return (
     <section className="term-wrap">
@@ -262,9 +249,9 @@ export default function Portfolio() {
                 mail: bak.andrs@gmail.com
               </div>
               <div className="term-links term-cv-btn">
-                <button type="button" onClick={handleCvOpen} className="term-btn">
+                <a href={cvPdf} target="_blank" rel="noreferrer" className="term-btn">
                   [ View CV ]
-                </button>
+                </a>
                 <a href="https://www.linkedin.com/in/andras-bako123/" target="_blank" rel="noreferrer" className="term-btn">
                   [ LinkedIn ]
                 </a>
@@ -387,12 +374,6 @@ export default function Portfolio() {
           })}
         </main>
       </div>
-
-      <CvModal
-        isOpen={open}
-        onClose={() => setOpen(false)}
-        pdfUrl={cvPdf}
-      />
     </section>
   );
 }
