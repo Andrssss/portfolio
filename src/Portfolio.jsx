@@ -22,6 +22,18 @@ const pythonImgs = Object.entries(
   import.meta.glob("./assets/portfolio/works/python_autolab/*.{png,jpg,jpeg}", { eager: true, import: "default" })
 ).sort(([a],[b]) => a.localeCompare(b, undefined, { numeric: true })).map(([,m]) => m);
 
+/* ── Preload & cache every project image up front (single size, no thumbs) ──
+   Warms the browser cache as soon as the app boots, so opening any project's
+   carousel later never triggers a fresh network fetch. */
+const imageCache = new Map();
+function preloadImage(src) {
+  if (imageCache.has(src)) return imageCache.get(src);
+  const img = new Image();
+  img.src = src;
+  imageCache.set(src, img);
+  return img;
+}
+[...internshipImgs, ...javaImgs, ...neuralImgs, ...pythonImgs].forEach(preloadImage);
 
 /* ── Experience ────────────────────────────────────────────────────────── */
 const experience = [
@@ -86,7 +98,7 @@ const projects = [
   {
     n: 2,
     title: "Java – Safer Client/Server",
-    summary: "Thread-safe client–server communication with a clean OOP structure.",
+    summary: "A multiplayer game built on thread-safe client–server networking with a clean OOP structure.",
     images: javaImgs,
     links: [{ label: "Github Repository", href: "https://github.com/Andrssss/JAVA_NAGYHF_okosabb_megoldas" }],
     tags: ["java", "networking", "threading", "oop", "socket"],
@@ -102,7 +114,7 @@ const projects = [
   {
     n: 4,
     title: "Python – AutoLab",
-    summary: "Petri-dish automation: Arduino comms, GUI, and image processing. This was also my thesis project.",
+    summary: "A low-cost, open-source alternative to expensive commercial lab-automation systems, built on repurposed 3D-printer hardware (Arduino Mega 2560, RAMPS 1.4, Marlin firmware). A thread-safe, multi-threaded Python/PyQt5 GUI drives a 4-step pipeline (Capture, ROI, Summary, Picking) that uses OpenCV to detect the Petri dish and segment bacterial colonies, then converts pixel coordinates to real-world positions for automated sampling. I validated the design by running the entire stack, unmodified, on a completely different machine, a 3D printer, proving it's genuinely hardware-independent. This was also my thesis project.",
     images: pythonImgs,
     links: [
       { label: "Github Repository", href: "https://github.com/Andrssss/AutoLab" },
@@ -172,7 +184,7 @@ function Carousel({ images, altPrefix = "Slide" }) {
       >
         {images.map((src, idx) => (
           <div className="neo-cr_slide" key={idx} aria-hidden={idx !== i}>
-            <img src={src} alt={`${altPrefix} ${idx + 1}`} loading="lazy" draggable="false" />
+            <img src={src} alt={`${altPrefix} ${idx + 1}`} draggable="false" />
           </div>
         ))}
       </div>
